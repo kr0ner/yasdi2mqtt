@@ -3,5 +3,4 @@
 **/*.DS_Store
 
 yasdi2mqtt
-devices
 cert.pem

@@ -1,0 +1,29 @@
+name: "yasdi2mqtt"
+description: "Yasdi2MQTT Add-On"
+version: "1.0.0"
+slug: "hello_world"
+init: false
+arch:
+  - amd64
+devices:
+  - /dev/ttyUSB0
+options:
+  config: "/etc/yasdi2mqtt/yasdi.ini"
+  max_device_count: 1
+  update_intervall: 15
+  mqtt_topic_prefix: "solar/inverter"
+  mqtt_server: 192.168.178.2
+  mqtt_port: 1883
+  mqtt_user: null
+  mqtt_password: null
+  log_level: 0
+schema:
+  config: str
+  max_device_count: int
+  update_intervall: int
+  mqtt_topic_prefix: str
+  mqtt_server: str
+  mqtt_port: int
+  mqtt_user: str
+  mqtt_password: str
+  log_level: int

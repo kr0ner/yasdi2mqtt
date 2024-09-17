@@ -1,6 +1,8 @@
 FROM debian:bullseye-slim
 
 COPY . /yasdi2mqtt
+COPY . /yasdi.ini /etc/yasdi2mqtt/
+COPY . /devices/ /etc/yasdi2mqtt/devices/
 
 RUN apt-get update && apt-get install -y git gcc make cmake openssl libssl-dev libcjson1 libcjson-dev libpaho-mqtt1.3 libpaho-mqtt-dev \
  && git clone --depth=1 https://github.com/pkwagner/yasdi.git yasdi \
@@ -14,4 +16,9 @@ RUN apt-get update && apt-get install -y git gcc make cmake openssl libssl-dev l
 
 WORKDIR /etc/yasdi2mqtt
 
-ENTRYPOINT ["yasdi2mqtt"]
+# Copy data
+COPY data/run.sh /
+
+CMD [ "/run.sh" ]
+
+#ENTRYPOINT ["yasdi2mqtt"]

@@ -2,7 +2,7 @@ name: yasdi2mqtt
 version: "1.2"
 slug: yasdi2mqtt
 description: Yasdi2mqtt
-url: https://github.com/dlipschinski/yasdi2mqtt
+url: https://github.com/kr0ner/yasdi2mqtt
 arch:
 - armhf
 - armv7

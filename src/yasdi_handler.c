@@ -213,6 +213,15 @@ struct device_value_t **yh_get_values()
                 continue;
             }
 
+            if (strcmp(channel_name, "E-Total") != 0 &&
+                strcmp(channel_name, "Pac") != 0 &&
+                strcmp(channel_name, "Upv-Ist") != 0 &&
+                strcmp(channel_name, "Ipv") != 0 &&
+                strcmp(channel_name, "Status") != 0)
+            {
+                continue; // Skip the slow physical read for channels we don't need in HA
+            }
+
             double value;
             char value_str[MAX_VALUE_STR_SIZE];
             status = GetChannelValue(channel, device, &value, value_str, MAX_VALUE_STR_SIZE, 0);
